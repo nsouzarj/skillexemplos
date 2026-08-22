@@ -12,8 +12,10 @@ As skills presentes neste workspace se complementam para cobrir todo o ciclo de 
 flowchart LR
     A[software-architect<br/><i>Arquitetura & Governança</i>] --> B[spec-driven-designer<br/><i>UI/UX, Tokens & Contratos</i>]
     B --> C[spec-driven-development<br/><i>SDD, TDD & Código</i>]
+    C --> E[security<br/><i>Auditoria AppSec & DataSec</i>]
     A -.-> D[archify<br/><i>Diagramas Interativos HTML/SVG</i>]
     B -.-> D
+    E -.-> A
 ```
 
 ---
@@ -63,7 +65,22 @@ Impõe a metodologia **Spec-Driven Development** (SDD) através de uma regra de 
 
 ---
 
-### 4. 📊 `archify`
+### 4. 🛡️ `security`
+**Localização:** [`.agents/skills/security`](file:///d:/Projetos/skillexemplos/.agents/skills/security/SKILL.md)  
+**Papel:** *Auditor Sênior Especialista em Segurança de Software (AppSec & DataSec)*  
+Atua em modo estritamente consultivo e defensivo para auditar o código-fonte, camadas web e bancos de dados:
+* **Camada Web:** Análise de cabeçalhos (CORS, CSP, HSTS), cookies de sessão (`HttpOnly`, `Secure`, `SameSite`) e vetores web (XSS, CSRF, SSRF, Path Traversal, Open Redirect).
+* **Camada de Código & Aplicação:** Controle de acesso/autorização (BOLA/IDOR), validação de entradas não confiáveis, detecção de segredos hardcoded, criptografia adequada e prevenção de vazamento de dados em logs/erros.
+* **Camada de Banco de Dados (SQL & NoSQL):** Injeções (SQL/NoSQL/ORM Injection), uso indevido de *raw queries*, vazamento de dados sensíveis em queries públicas e boas práticas transacionais/permissões.
+* **Regras Operacionais Rígidas:**
+  * **Modo Consultivo (Read-Only):** Não altera código diretamente; propõe correções e exemplos didáticos.
+  * **Triagem de Falsos Positivos:** Identifica e descarta alertas mitigados pelo contexto.
+  * **100% Defensivo:** Não fornece exploits ou payloads ofensivos funcionais.
+* **Artefato Gerado:** Relatório de Auditoria estruturado com Resumo Executivo, Vulnerabilidades Confirmadas (com CWE, severidade e sugestão de correção), Análise de Falsos Positivos e Recomendações de Hardening.
+
+---
+
+### 5. 📊 `archify`
 **Localização:** [`.agents/skills/archify`](file:///d:/Projetos/skillexemplos/.agents/skills/archify/SKILL.md)  
 **Papel:** *Gerador de Diagramas Interativos em HTML/SVG*  
 Cria diagramas standalone de alta fidelidade a partir de especificações JSON validadas ou convertendo trechos Mermaid:
@@ -91,6 +108,8 @@ Cria diagramas standalone de alta fidelidade a partir de especificações JSON v
 │       │   ├── schemas/            # Schemas JSON dos diagramas
 │       │   ├── examples/           # Exemplos de diagramas para referência
 │       │   └── SKILL.md            # Instruções da skill archify
+│       ├── security/               # Auditoria de segurança (AppSec, Web e Bancos de Dados)
+│       │   └── SKILL.md            # Instruções da skill security
 │       ├── software-architect/     # Diretrizes de arquitetura e governança
 │       │   └── SKILL.md            # Instruções da skill software-architect
 │       ├── spec-driven-designer/   # Modelagem de UI/UX, tokens e contratos
@@ -118,7 +137,10 @@ Quando este workspace estiver aberto no ambiente do agente (ex: Antigravity IDE)
    > *"@spec create Autenticação e Gestão de Usuários"*  
    > *(Aguarde a geração da spec, revise e depois solicite `@spec implement`)*
 
-4. **Geração de Diagramas Interativos:**
+4. **Auditoria de Segurança (AppSec & DataSec):**
+   > *"Atue com a skill `security` para realizar uma auditoria técnica de segurança no módulo de autenticação e nas queries SQL."*
+
+5. **Geração de Diagramas Interativos:**
    > *"Utilize a skill `archify` para gerar um diagrama interativo de arquitetura dos nossos microsserviços."*
 
 ---
