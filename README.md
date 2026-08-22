@@ -77,6 +77,9 @@ Atua em modo estritamente consultivo e defensivo para auditar o código-fonte, c
   * **Triagem de Falsos Positivos:** Identifica e descarta alertas mitigados pelo contexto.
   * **100% Defensivo:** Não fornece exploits ou payloads ofensivos funcionais.
 * **Artefato Gerado:** Relatório de Auditoria estruturado com Resumo Executivo, Vulnerabilidades Confirmadas (com CWE, severidade e sugestão de correção), Análise de Falsos Positivos e Recomendações de Hardening.
+* **Comandos Aceitos:**
+  * `@security audit <alvo>`: Inicia auditoria de segurança completa no arquivo, diretório ou módulo especificado.
+  * `@security triage`: Executa triagem e detalhamento de falsos positivos em apontamentos anteriores.
 
 ---
 
